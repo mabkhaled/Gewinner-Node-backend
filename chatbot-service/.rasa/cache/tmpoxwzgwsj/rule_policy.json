@@ -1,0 +1,46 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"contact_support\"}}]": "utter_contact_support",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"contact_support\"}}, {\"prev_action\": {\"action_name\": \"utter_contact_support\"}, \"user\": {\"intent\": \"contact_support\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]": "utter_greet",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"assistant_features\"}}]": "utter_assistant_features",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"assistant_features\"}}, {\"prev_action\": {\"action_name\": \"utter_assistant_features\"}, \"user\": {\"intent\": \"assistant_features\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"company_info\"}}]": "utter_company_info",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"company_info\"}}, {\"prev_action\": {\"action_name\": \"utter_company_info\"}, \"user\": {\"intent\": \"company_info\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"user_types\"}}]": "utter_user_types",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"user_types\"}}, {\"prev_action\": {\"action_name\": \"utter_user_types\"}, \"user\": {\"intent\": \"user_types\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"product_info\"}}]": "utter_product_info",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"product_info\"}}, {\"prev_action\": {\"action_name\": \"utter_product_info\"}, \"user\": {\"intent\": \"product_info\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"modes_of_control\"}}]": "utter_modes_of_control",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"modes_of_control\"}}, {\"prev_action\": {\"action_name\": \"utter_modes_of_control\"}, \"user\": {\"intent\": \"modes_of_control\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"payment_options\"}}]": "utter_payment_options",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"payment_options\"}}, {\"prev_action\": {\"action_name\": \"utter_payment_options\"}, \"user\": {\"intent\": \"payment_options\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"troubleshooting\"}}]": "utter_troubleshooting",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"troubleshooting\"}}, {\"prev_action\": {\"action_name\": \"utter_troubleshooting\"}, \"user\": {\"intent\": \"troubleshooting\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"how_to_use_brain_mode\"}}]": "utter_how_to_use_brain_mode",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"how_to_use_brain_mode\"}}, {\"prev_action\": {\"action_name\": \"utter_how_to_use_brain_mode\"}, \"user\": {\"intent\": \"how_to_use_brain_mode\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"about_app\"}}]": "utter_about_app",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"about_app\"}}, {\"prev_action\": {\"action_name\": \"utter_about_app\"}, \"user\": {\"intent\": \"about_app\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"how_to_use_manual_mode\"}}]": "utter_how_to_use_manual_mode",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"how_to_use_manual_mode\"}}, {\"prev_action\": {\"action_name\": \"utter_how_to_use_manual_mode\"}, \"user\": {\"intent\": \"how_to_use_manual_mode\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"track_location\"}}]": "utter_track_location",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"track_location\"}}, {\"prev_action\": {\"action_name\": \"utter_track_location\"}, \"user\": {\"intent\": \"track_location\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"check_battery_level\"}}]": "utter_check_battery_level",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"check_battery_level\"}}, {\"prev_action\": {\"action_name\": \"utter_check_battery_level\"}, \"user\": {\"intent\": \"check_battery_level\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"how_to_use_voice_mode\"}}]": "utter_how_to_use_voice_mode",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"how_to_use_voice_mode\"}}, {\"prev_action\": {\"action_name\": \"utter_how_to_use_voice_mode\"}, \"user\": {\"intent\": \"how_to_use_voice_mode\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"monitor_speed\"}}]": "utter_monitor_speed",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"monitor_speed\"}}, {\"prev_action\": {\"action_name\": \"utter_monitor_speed\"}, \"user\": {\"intent\": \"monitor_speed\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent restart",
+      "predicting default action with intent back",
+      "predicting default action with intent session_start"
+    ]
+  }
+}

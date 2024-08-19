@@ -1,0 +1,240 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - Hi
+      - Hello
+      - Hey
+      - Good morning
+      - Good afternoon
+      - Hi there
+      - Hello there
+      - مرحبا
+      - أهلاً
+      - مرحباً
+      - صباح الخير
+      - مساء الخير
+
+  - intent: about_app
+    examples: |
+      - Tell me about the app
+      - What is Moovoobrain?
+      - Explain the Moovoobrain app
+      - What does Moovoobrain do?
+      - Can you describe the app?
+      - I want to know about the app
+      - أخبرني عن التطبيق
+      - ما هو مووفوبراين؟
+      - اشرح تطبيق مووفوبراين
+      - ماذا يفعل مووفوبراين؟
+      - هل يمكنك وصف التطبيق؟
+      - أريد أن أعرف عن التطبيق
+
+  - intent: modes_of_control
+    examples: |
+      - What modes can I use to control the wheelchair?
+      - How can I control the wheelchair?
+      - Explain the control modes
+      - What are the different modes of control?
+      - How do I control the wheelchair?
+      - Tell me about the control modes
+      - ما هي الأوضاع التي يمكنني استخدامها للتحكم في الكرسي المتحرك؟
+      - كيف يمكنني التحكم في الكرسي المتحرك؟
+      - اشرح أوضاع التحكم
+      - ما هي أوضاع التحكم المختلفة؟
+      - كيف أتحكم في الكرسي المتحرك؟
+      - أخبرني عن أوضاع التحكم
+
+  - intent: user_types
+    examples: |
+      - Who can use the app?
+      - What are the user types?
+      - Who are the users of this app?
+      - Can anyone use the app?
+      - Who are the intended users?
+      - من يمكنه استخدام التطبيق؟
+      - ما هي أنواع المستخدمين؟
+      - من هم مستخدمو هذا التطبيق؟
+      - هل يمكن لأي شخص استخدام التطبيق؟
+      - من هم المستخدمون المستهدفون؟
+
+  - intent: assistant_features
+    examples: |
+      - What can the assistant do?
+      - What features are available for the assistant?
+      - How can the assistant help?
+      - What is the role of the assistant?
+      - What does the assistant do?
+      - Assistant features?
+      - ماذا يمكن أن يفعل المساعد؟
+      - ما هي الميزات المتاحة للمساعد؟
+      - كيف يمكن أن يساعد المساعد؟
+      - ما هو دور المساعد؟
+      - ماذا يفعل المساعد؟
+      - ميزات المساعد؟
+
+  - intent: payment_options
+    examples: |
+      - What are the payment options?
+      - How can I pay for the product?
+      - What payment methods are available?
+      - Explain the payment process
+      - How do I pay?
+      - What are the payment choices?
+      - ما هي خيارات الدفع؟
+      - كيف يمكنني الدفع مقابل المنتج؟
+      - ما هي طرق الدفع المتاحة؟
+      - اشرح عملية الدفع
+      - كيف أدفع؟
+      - ما هي خيارات الدفع؟
+
+  - intent: product_info
+    examples: |
+      - Tell me about the product
+      - What is Moovoobrain?
+      - Explain the product features
+      - What does the product do?
+      - Product details?
+      - Describe the product
+      - أخبرني عن المنتج
+      - ما هو مووفوبراين؟
+      - اشرح ميزات المنتج
+      - ماذا يفعل المنتج؟
+      - تفاصيل المنتج؟
+      - وصف المنتج
+
+  - intent: troubleshooting
+    examples: |
+      - I'm having trouble with the app
+      - The app isn't working
+      - How do I fix the app?
+      - The app crashed, what do I do?
+      - I'm facing issues with the app
+      - Help, the app has problems
+      - أواجه مشكلة مع التطبيق
+      - التطبيق لا يعمل
+      - كيف أصلح التطبيق؟
+      - تعطل التطبيق، ماذا أفعل؟
+      - أواجه مشكلات مع التطبيق
+      - المساعدة، التطبيق به مشاكل
+
+  - intent: contact_support
+    examples: |
+      - How can I contact support?
+      - I need help with support
+      - Who do I contact for support?
+      - Can I get support?
+      - Support contact details?
+      - How to reach support?
+      - كيف يمكنني الاتصال بالدعم؟
+      - أحتاج إلى مساعدة مع الدعم
+      - من يمكنني الاتصال به للحصول على الدعم؟
+      - هل يمكنني الحصول على الدعم؟
+      - تفاصيل الاتصال بالدعم؟
+      - كيف أصل إلى الدعم؟
+
+  - intent: how_to_use_manual_mode
+    examples: |
+      - How do I use Manual Mode?
+      - Explain Manual Mode
+      - How to operate the wheelchair manually?
+      - Manual Mode details?
+      - Using Manual Mode?
+      - How to control manually?
+      - كيف أستخدم الوضع اليدوي؟
+      - اشرح الوضع اليدوي
+      - كيفية تشغيل الكرسي المتحرك يدوياً؟
+      - تفاصيل الوضع اليدوي؟
+      - استخدام الوضع اليدوي؟
+      - كيفية التحكم يدوياً؟
+
+  - intent: how_to_use_voice_mode
+    examples: |
+      - How do I use Voice Mode?
+      - Explain Voice Mode
+      - How to control the wheelchair with my voice?
+      - Voice Mode details?
+      - Using Voice Mode?
+      - How to control with voice?
+      - كيف أستخدم وضع الصوت؟
+      - اشرح وضع الصوت
+      - كيفية التحكم في الكرسي المتحرك بصوتي؟
+      - تفاصيل وضع الصوت؟
+      - استخدام وضع الصوت؟
+      - كيفية التحكم بالصوت؟
+
+  - intent: how_to_use_brain_mode
+    examples: |
+      - How do I use Brain Mode?
+      - Explain Brain Mode
+      - How to control the wheelchair with brain signals?
+      - Brain Mode details?
+      - Using Brain Mode?
+      - How to control with brain signals?
+      - كيف أستخدم وضع الدماغ؟
+      - اشرح وضع الدماغ
+      - كيفية التحكم في الكرسي المتحرك بالإشارات الدماغية؟
+      - تفاصيل وضع الدماغ؟
+      - استخدام وضع الدماغ؟
+      - كيفية التحكم بالإشارات الدماغية؟
+
+  - intent: track_location
+    examples: |
+      - How do I track the wheelchair's location?
+      - Can I see where the wheelchair is?
+      - How to track the wheelchair?
+      - Track location details?
+      - Monitoring wheelchair location?
+      - How to see location?
+      - كيف أتعقب موقع الكرسي المتحرك؟
+      - هل يمكنني رؤية أين الكرسي المتحرك؟
+      - كيفية تعقب الكرسي المتحرك؟
+      - تفاصيل تعقب الموقع؟
+      - مراقبة موقع الكرسي المتحرك؟
+      - كيفية رؤية الموقع؟
+
+  - intent: check_battery_level
+    examples: |
+      - How do I check the battery level?
+      - What is the battery status?
+      - How to monitor the wheelchair's battery?
+      - Battery level details?
+      - Checking battery?
+      - How to see battery level?
+      - كيف أتحقق من مستوى البطارية؟
+      - ما هو حالة البطارية؟
+      - كيفية مراقبة بطارية الكرسي المتحرك؟
+      - تفاصيل مستوى البطارية؟
+      - التحقق من البطارية؟
+      - كيفية رؤية مستوى البطارية؟
+
+  - intent: monitor_speed
+    examples: |
+      - How do I monitor the wheelchair's speed?
+      - What is the current speed?
+      - How to track the speed?
+      - Speed monitoring details?
+      - Checking speed?
+      - How to see speed?
+      - كيف أراقب سرعة الكرسي المتحرك؟
+      - ما هي السرعة الحالية؟
+      - كيفية تعقب السرعة؟
+      - تفاصيل مراقبة السرعة؟
+      - التحقق من السرعة؟
+      - كيفية رؤية السرعة؟
+
+  - intent: company_info
+    examples: |
+      - Tell me about Gewinner
+      - Who developed Moovoobrain?
+      - Information about Gewinner?
+      - Details about the company?
+      - Who is behind Moovoobrain?
+      - Company info?
+      - أخبرني عن جوينر
+      - من طور مووفوبراين؟
+      - معلومات عن جوينر؟
+      - تفاصيل عن الشركة؟
+      - من وراء مووفوبراين؟
+      - معلومات عن الشركة؟

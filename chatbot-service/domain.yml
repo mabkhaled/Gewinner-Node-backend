@@ -1,0 +1,256 @@
+version: "3.1"
+
+intents:
+  - greet
+  - about_app
+  - modes_of_control
+  - user_types
+  - assistant_features
+  - payment_options
+  - product_info
+  - troubleshooting
+  - contact_support
+  - how_to_use_manual_mode
+  - how_to_use_voice_mode
+  - how_to_use_brain_mode
+  - track_location
+  - check_battery_level
+  - monitor_speed
+  - company_info
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you with the Moovoobrain application today?"
+      buttons:
+        - title: "Tell me about the app"
+          payload: "/about_app"
+        - title: "Control modes?"
+          payload: "/modes_of_control"
+        - title: "Who are the users?"
+          payload: "/user_types"
+    - text: "مرحبًا! كيف يمكنني مساعدتك في تطبيق مووفوبراين اليوم؟"
+      buttons:
+        - title: "أخبرني عن التطبيق"
+          payload: "/about_app"
+        - title: "أوضاع التحكم؟"
+          payload: "/modes_of_control"
+        - title: "من هم المستخدمون؟"
+          payload: "/user_types"
+
+  utter_about_app:
+    - text: "Moovoobrain is an innovative application designed to help individuals with severe disabilities command their wheelchair using various modes such as manual, voice, and brain signals."
+      buttons:
+        - title: "Control modes?"
+          payload: "/modes_of_control"
+        - title: "User types?"
+          payload: "/user_types"
+    - text: "مووفوبراين هو تطبيق مبتكر مصمم لمساعدة الأفراد الذين يعانون من إعاقات شديدة على التحكم في كرسيهم المتحرك باستخدام أوضاع مختلفة مثل الوضع اليدوي، الصوت، والإشارات الدماغية."
+      buttons:
+        - title: "أوضاع التحكم؟"
+          payload: "/modes_of_control"
+        - title: "أنواع المستخدمين؟"
+          payload: "/user_types"
+
+  utter_modes_of_control:
+    - text: "You can control the wheelchair using Manual Mode, Voice Mode, and Brain Mode. Each mode offers a unique way to command the wheelchair."
+      buttons:
+        - title: "Manual Mode"
+          payload: "/how_to_use_manual_mode"
+        - title: "Voice Mode"
+          payload: "/how_to_use_voice_mode"
+        - title: "Brain Mode"
+          payload: "/how_to_use_brain_mode"
+    - text: "يمكنك التحكم في الكرسي المتحرك باستخدام الوضع اليدوي، وضع الصوت، ووضع الدماغ. كل وضع يوفر طريقة فريدة للتحكم في الكرسي المتحرك."
+      buttons:
+        - title: "الوضع اليدوي"
+          payload: "/how_to_use_manual_mode"
+        - title: "وضع الصوت"
+          payload: "/how_to_use_voice_mode"
+        - title: "وضع الدماغ"
+          payload: "/how_to_use_brain_mode"
+
+  utter_user_types:
+    - text: "There are two types of users: the wheelchair user and the assistant. The wheelchair user logs in with the ID and password provided by the company, while the assistant can track the location, battery level, and speed, and can use the chatbot to get information."
+      buttons:
+        - title: "Assistant features?"
+          payload: "/assistant_features"
+        - title: "Track location?"
+          payload: "/track_location"
+    - text: "هناك نوعان من المستخدمين: مستخدم الكرسي المتحرك والمساعد. يسجل مستخدم الكرسي المتحرك الدخول باستخدام المعرف وكلمة المرور التي توفرها الشركة، بينما يمكن للمساعد تتبع الموقع ومستوى البطارية والسرعة، ويمكنه استخدام الدردشة للحصول على المعلومات."
+      buttons:
+        - title: "ميزات المساعد؟"
+          payload: "/assistant_features"
+        - title: "تتبع الموقع؟"
+          payload: "/track_location"
+
+  utter_assistant_features:
+    - text: "The assistant can track the wheelchair's location, battery level, and speed, and use the chatbot to get information and ask questions."
+      buttons:
+        - title: "Check battery level"
+          payload: "/check_battery_level"
+        - title: "Monitor speed"
+          payload: "/monitor_speed"
+    - text: "يمكن للمساعد تتبع موقع الكرسي المتحرك، ومستوى البطارية، والسرعة، واستخدام الدردشة للحصول على المعلومات وطرح الأسئلة."
+      buttons:
+        - title: "تحقق من مستوى البطارية"
+          payload: "/check_battery_level"
+        - title: "مراقبة السرعة"
+          payload: "/monitor_speed"
+
+  utter_payment_options:
+    - text: "We offer a pre-order pack which includes the wheelchair with all command options through the application. This innovative product is developed by the startup Gewinner."
+      buttons:
+        - title: "Product info"
+          payload: "/product_info"
+        - title: "Company info"
+          payload: "/company_info"
+    - text: "نحن نقدم حزمة الطلب المسبق التي تتضمن الكرسي المتحرك مع جميع خيارات الأوامر من خلال التطبيق. هذا المنتج المبتكر تم تطويره بواسطة الشركة الناشئة Gewinner."
+      buttons:
+        - title: "معلومات المنتج"
+          payload: "/product_info"
+        - title: "معلومات الشركة"
+          payload: "/company_info"
+
+  utter_product_info:
+    - text: "The product, called Moovoobrain, is a revolutionary wheelchair command system developed by the startup Gewinner. It offers multiple modes of control to assist individuals with severe disabilities."
+      buttons:
+        - title: "Modes of control"
+          payload: "/modes_of_control"
+        - title: "How to use"
+          payload: "/how_to_use_manual_mode"
+    - text: "المنتج المسمى مووفوبراين هو نظام تحكم ثوري للكرسي المتحرك تم تطويره بواسطة الشركة الناشئة Gewinner. يقدم أوضاع تحكم متعددة لمساعدة الأفراد الذين يعانون من إعاقات شديدة."
+      buttons:
+        - title: "أوضاع التحكم"
+          payload: "/modes_of_control"
+        - title: "كيفية الاستخدام"
+          payload: "/how_to_use_manual_mode"
+
+  utter_troubleshooting:
+    - text: "I'm sorry to hear that you're experiencing issues. Please provide more details about the problem, or contact our support team for further assistance."
+      buttons:
+        - title: "Contact support"
+          payload: "/contact_support"
+        - title: "Company info"
+          payload: "/company_info"
+    - text: "أنا آسف لسماع أنك تواجه مشاكل. يرجى تقديم مزيد من التفاصيل حول المشكلة، أو الاتصال بفريق الدعم لدينا للحصول على مزيد من المساعدة."
+      buttons:
+        - title: "اتصل بالدعم"
+          payload: "/contact_support"
+        - title: "معلومات الشركة"
+          payload: "/company_info"
+
+  utter_contact_support:
+    - text: "You can contact our support team via email at support@gewinner.com or call us at 1-800-123-4567."
+      buttons:
+        - title: "Troubleshooting"
+          payload: "/troubleshooting"
+        - title: "Company info"
+          payload: "/company_info"
+    - text: "يمكنك الاتصال بفريق الدعم لدينا عبر البريد الإلكتروني على support@gewinner.com أو الاتصال بنا على الرقم 1-800-123-4567."
+      buttons:
+        - title: "استكشاف الأخطاء"
+          payload: "/troubleshooting"
+        - title: "معلومات الشركة"
+          payload: "/company_info"
+
+  utter_how_to_use_manual_mode:
+    - text: "In Manual Mode, you can command the wheelchair using buttons for forward, backward, right, and left. You can also switch between indoor and outdoor settings."
+      buttons:
+        - title: "Voice mode"
+          payload: "/how_to_use_voice_mode"
+        - title: "Brain mode"
+          payload: "/how_to_use_brain_mode"
+    - text: "في الوضع اليدوي، يمكنك التحكم في الكرسي المتحرك باستخدام الأزرار للأمام، الخلف، اليمين، واليسار. يمكنك أيضًا التبديل بين الإعدادات الداخلية والخارجية."
+      buttons:
+        - title: "وضع الصوت"
+          payload: "/how_to_use_voice_mode"
+        - title: "وضع الدماغ"
+          payload: "/how_to_use_brain_mode"
+
+  utter_how_to_use_voice_mode:
+    - text: "In Voice Mode, you can command the wheelchair using your voice. You need to record all directions with your voice five times to ensure precision and safety."
+      buttons:
+        - title: "Manual mode"
+          payload: "/how_to_use_manual_mode"
+        - title: "Brain mode"
+          payload: "/how_to_use_brain_mode"
+    - text: "في وضع الصوت، يمكنك التحكم في الكرسي المتحرك باستخدام صوتك. تحتاج إلى تسجيل جميع الاتجاهات بصوتك خمس مرات لضمان الدقة والأمان."
+      buttons:
+        - title: "الوضع اليدوي"
+          payload: "/how_to_use_manual_mode"
+        - title: "وضع الدماغ"
+          payload: "/how_to_use_brain_mode"
+
+  utter_how_to_use_brain_mode:
+    - text: "In Brain Mode, you can command the wheelchair using electrical signals from parts of your brain. This mode requires calibration and training to ensure safety."
+      buttons:
+        - title: "Manual mode"
+          payload: "/how_to_use_manual_mode"
+        - title: "Voice mode"
+          payload: "/how_to_use_voice_mode"
+    - text: "في وضع الدماغ، يمكنك التحكم في الكرسي المتحرك باستخدام الإشارات الكهربائية من أجزاء من دماغك. يتطلب هذا الوضع المعايرة والتدريب لضمان الأمان."
+      buttons:
+        - title: "الوضع اليدوي"
+          payload: "/how_to_use_manual_mode"
+        - title: "وضع الصوت"
+          payload: "/how_to_use_voice_mode"
+
+  utter_track_location:
+    - text: "The assistant can track the wheelchair's location through the app. You can view the location in real-time on the map."
+      buttons:
+        - title: "Check battery level"
+          payload: "/check_battery_level"
+        - title: "Monitor speed"
+          payload: "/monitor_speed"
+    - text: "يمكن للمساعد تتبع موقع الكرسي المتحرك من خلال التطبيق. يمكنك عرض الموقع في الوقت الفعلي على الخريطة."
+      buttons:
+        - title: "تحقق من مستوى البطارية"
+          payload: "/check_battery_level"
+        - title: "مراقبة السرعة"
+          payload: "/monitor_speed"
+
+  utter_check_battery_level:
+    - text: "You can check the battery level of the wheelchair through the app. The assistant can monitor this and get notified when the battery is low."
+      buttons:
+        - title: "Track location"
+          payload: "/track_location"
+        - title: "Monitor speed"
+          payload: "/monitor_speed"
+    - text: "يمكنك التحقق من مستوى البطارية للكرسي المتحرك من خلال التطبيق. يمكن للمساعد مراقبة ذلك والحصول على إشعار عندما تكون البطارية منخفضة."
+      buttons:
+        - title: "تتبع الموقع"
+          payload: "/track_location"
+        - title: "مراقبة السرعة"
+          payload: "/monitor_speed"
+
+  utter_monitor_speed:
+    - text: "The assistant can monitor the speed of the wheelchair in real-time. You can view the speed information through the app."
+      buttons:
+        - title: "Track location"
+          payload: "/track_location"
+        - title: "Check battery level"
+          payload: "/check_battery_level"
+    - text: "يمكن للمساعد مراقبة سرعة الكرسي المتحرك في الوقت الفعلي. يمكنك عرض معلومات السرعة من خلال التطبيق."
+      buttons:
+        - title: "تتبع الموقع"
+          payload: "/track_location"
+        - title: "تحقق من مستوى البطارية"
+          payload: "/check_battery_level"
+
+  utter_company_info:
+    - text: "Gewinner is a startup focused on innovative solutions for individuals with disabilities. The Moovoobrain product is our latest innovation in assistive technology."
+      buttons:
+        - title: "About app"
+          payload: "/about_app"
+        - title: "Contact support"
+          payload: "/contact_support"
+    - text: "Gewinner هي شركة ناشئة تركز على الحلول المبتكرة للأفراد ذوي الإعاقة. منتج مووفوبراين هو أحدث ابتكاراتنا في تكنولوجيا المساعدة."
+      buttons:
+        - title: "حول التطبيق"
+          payload: "/about_app"
+        - title: "اتصل بالدعم"
+          payload: "/contact_support"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

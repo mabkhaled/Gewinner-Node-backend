@@ -1,0 +1,163 @@
+version: "3.1"
+
+stories:
+
+  - story: greet path
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: greet path in Arabic
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: about app path
+    steps:
+      - intent: about_app
+      - action: utter_about_app
+
+  - story: about app path in Arabic
+    steps:
+      - intent: about_app
+      - action: utter_about_app
+
+  - story: modes of control path
+    steps:
+      - intent: modes_of_control
+      - action: utter_modes_of_control
+
+  - story: modes of control path in Arabic
+    steps:
+      - intent: modes_of_control
+      - action: utter_modes_of_control
+
+  - story: user types path
+    steps:
+      - intent: user_types
+      - action: utter_user_types
+
+  - story: user types path in Arabic
+    steps:
+      - intent: user_types
+      - action: utter_user_types
+
+  - story: assistant features path
+    steps:
+      - intent: assistant_features
+      - action: utter_assistant_features
+
+  - story: assistant features path in Arabic
+    steps:
+      - intent: assistant_features
+      - action: utter_assistant_features
+
+  - story: payment options path
+    steps:
+      - intent: payment_options
+      - action: utter_payment_options
+
+  - story: payment options path in Arabic
+    steps:
+      - intent: payment_options
+      - action: utter_payment_options
+
+  - story: product info path
+    steps:
+      - intent: product_info
+      - action: utter_product_info
+
+  - story: product info path in Arabic
+    steps:
+      - intent: product_info
+      - action: utter_product_info
+
+  - story: troubleshooting path
+    steps:
+      - intent: troubleshooting
+      - action: utter_troubleshooting
+
+  - story: troubleshooting path in Arabic
+    steps:
+      - intent: troubleshooting
+      - action: utter_troubleshooting
+
+  - story: contact support path
+    steps:
+      - intent: contact_support
+      - action: utter_contact_support
+
+  - story: contact support path in Arabic
+    steps:
+      - intent: contact_support
+      - action: utter_contact_support
+
+  - story: how to use manual mode path
+    steps:
+      - intent: how_to_use_manual_mode
+      - action: utter_how_to_use_manual_mode
+
+  - story: how to use manual mode path in Arabic
+    steps:
+      - intent: how_to_use_manual_mode
+      - action: utter_how_to_use_manual_mode
+
+  - story: how to use voice mode path
+    steps:
+      - intent: how_to_use_voice_mode
+      - action: utter_how_to_use_voice_mode
+
+  - story: how to use voice mode path in Arabic
+    steps:
+      - intent: how_to_use_voice_mode
+      - action: utter_how_to_use_voice_mode
+
+  - story: how to use brain mode path
+    steps:
+      - intent: how_to_use_brain_mode
+      - action: utter_how_to_use_brain_mode
+
+  - story: how to use brain mode path in Arabic
+    steps:
+      - intent: how_to_use_brain_mode
+      - action: utter_how_to_use_brain_mode
+
+  - story: track location path
+    steps:
+      - intent: track_location
+      - action: utter_track_location
+
+  - story: track location path in Arabic
+    steps:
+      - intent: track_location
+      - action: utter_track_location
+
+  - story: check battery level path
+    steps:
+      - intent: check_battery_level
+      - action: utter_check_battery_level
+
+  - story: check battery level path in Arabic
+    steps:
+      - intent: check_battery_level
+      - action: utter_check_battery_level
+
+  - story: monitor speed path
+    steps:
+      - intent: monitor_speed
+      - action: utter_monitor_speed
+
+  - story: monitor speed path in Arabic
+    steps:
+      - intent: monitor_speed
+      - action: utter_monitor_speed
+
+  - story: company info path
+    steps:
+      - intent: company_info
+      - action: utter_company_info
+
+  - story: company info path in Arabic
+    steps:
+      - intent: company_info
+      - action: utter_company_info

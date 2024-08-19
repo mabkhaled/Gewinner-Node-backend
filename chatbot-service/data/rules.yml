@@ -1,0 +1,83 @@
+version: "3.1"
+
+rules:
+
+  - rule: greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: about app
+    steps:
+      - intent: about_app
+      - action: utter_about_app
+
+  - rule: modes of control
+    steps:
+      - intent: modes_of_control
+      - action: utter_modes_of_control
+
+  - rule: user types
+    steps:
+      - intent: user_types
+      - action: utter_user_types
+
+  - rule: assistant features
+    steps:
+      - intent: assistant_features
+      - action: utter_assistant_features
+
+  - rule: payment options
+    steps:
+      - intent: payment_options
+      - action: utter_payment_options
+
+  - rule: product info
+    steps:
+      - intent: product_info
+      - action: utter_product_info
+
+  - rule: troubleshooting
+    steps:
+      - intent: troubleshooting
+      - action: utter_troubleshooting
+
+  - rule: contact support
+    steps:
+      - intent: contact_support
+      - action: utter_contact_support
+
+  - rule: how to use manual mode
+    steps:
+      - intent: how_to_use_manual_mode
+      - action: utter_how_to_use_manual_mode
+
+  - rule: how to use voice mode
+    steps:
+      - intent: how_to_use_voice_mode
+      - action: utter_how_to_use_voice_mode
+
+  - rule: how to use brain mode
+    steps:
+      - intent: how_to_use_brain_mode
+      - action: utter_how_to_use_brain_mode
+
+  - rule: track location
+    steps:
+      - intent: track_location
+      - action: utter_track_location
+
+  - rule: check battery level
+    steps:
+      - intent: check_battery_level
+      - action: utter_check_battery_level
+
+  - rule: monitor speed
+    steps:
+      - intent: monitor_speed
+      - action: utter_monitor_speed
+
+  - rule: company info
+    steps:
+      - intent: company_info
+      - action: utter_company_info
