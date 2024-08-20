@@ -1,0 +1,7 @@
+{
+  "name": "backend-nodejs",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "docker-compose up"
+  }
+}
