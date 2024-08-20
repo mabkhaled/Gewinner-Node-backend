@@ -1,5 +1,5 @@
 const WebSocket = require('ws');
-const server = new WebSocket.Server({ port: 3000 });
+const server = new WebSocket.Server({ port: 3003 });
 
 server.on('connection', (socket) => {
   console.log('New WebSocket client connected');
@@ -7,11 +7,9 @@ server.on('connection', (socket) => {
   let latitude = 36.8410624;
   let longitude = 10.1548032;
 
-  // Function to simulate movement
   function simulateMovement() {
-    // Slightly vary latitude and longitude
-    latitude += (Math.random() - 0.5) * 0.0001; // Change in latitude
-    longitude += (Math.random() - 0.5) * 0.0001; // Change in longitude
+    latitude += (Math.random() - 0.5) * 0.0001;
+    longitude += (Math.random() - 0.5) * 0.0001;
 
     const locationData = {
       latitude: parseFloat(latitude.toFixed(7)),
@@ -21,7 +19,6 @@ server.on('connection', (socket) => {
     socket.send(JSON.stringify(locationData));
   }
 
-  // Send simulated data every 2 seconds
   const intervalId = setInterval(simulateMovement, 2000);
 
   socket.on('message', (message) => {
@@ -30,7 +27,7 @@ server.on('connection', (socket) => {
 
   socket.on('close', () => {
     console.log('WebSocket client disconnected');
-    clearInterval(intervalId); // Clear the interval on disconnect
+    clearInterval(intervalId);
   });
 
   socket.on('error', (error) => {
@@ -38,47 +35,4 @@ server.on('connection', (socket) => {
   });
 });
 
-
-
-
-
-
-
-/* const WebSocket = require('ws');
-
-// Create a WebSocket server
-const wss = new WebSocket.Server({ port: 3000 });
-
-// Broadcast function to send messages to all connected clients
-function broadcast(data) {
-    wss.clients.forEach(client => {
-        if (client.readyState === WebSocket.OPEN) {
-            client.send(data);
-        }
-    });
-}
-
-// Handle new WebSocket connections
-wss.on('connection', (ws) => {
-    console.log('New WebSocket client connected');
-
-    // Listen for messages from the client
-    ws.on('message', (message) => {
-        console.log('Received message:', message);
-
-        // Broadcast the received message to all clients
-        broadcast(message);
-    });
-
-    ws.on('close', () => {
-        console.log('WebSocket client disconnected');
-    });
-
-    ws.on('error', (error) => {
-        console.error(`WebSocket error: ${error}`);
-    });
-});
-
-console.log('WebSocket server is running on ws://localhost:3000');*/ 
-
-
+console.log('WebSocket server running on port 3003');

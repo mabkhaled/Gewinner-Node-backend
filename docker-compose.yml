@@ -1,0 +1,28 @@
+services:
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+
+  assistant-service:
+    build: ./assistant-service
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=production
+
+  nodejs-chatbot-service:
+    build: ./nodejs-chatbot-service
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=production
+
+  voice-command:
+    build: ./voice-command
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
