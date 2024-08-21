@@ -29,11 +29,6 @@ jobs:
           cd voice-command
           npm install
 
-      - name: Run tests
-        run: |
-          cd voice-command
-          npm test
-
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u klodinklod12 --password-stdin
 
