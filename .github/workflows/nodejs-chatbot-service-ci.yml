@@ -1,4 +1,4 @@
-name: NodeJS Chatbot Service CI
+name: Node.js Chatbot Service CI/CD
 
 on:
   push:
@@ -15,10 +15,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -26,7 +22,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '16.x'
 
       - name: Install dependencies
         run: |
@@ -39,10 +35,7 @@ jobs:
           npm test
 
       - name: Log in to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: "klodinklod12"
-          password: "dckr_pat_xfCvZjsQn0uDDM56z10nCVRDTq4"
+        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u klodinklod12 --password-stdin
 
       - name: Build Docker image
         run: |
