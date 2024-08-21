@@ -1,4 +1,4 @@
-name: Assistant Service CI/CD
+name: Assistant Service CI
 
 on:
   push:
@@ -15,6 +15,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -22,21 +26,9 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
         run: |
           cd assistant-service
           npm install
-
-      - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u klodinklod12 --password-stdin
-
-      - name: Build Docker image
-        run: |
-          cd assistant-service
-          docker build -t klodinklod12/assistant-service:latest .
-
-      - name: Push Docker image to Docker Hub
-        run: |
-          docker push klodinklod12/assistant-service:latest
