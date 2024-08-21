@@ -1,0 +1,42 @@
+name: Voice Command Service CI/CD
+
+on:
+  push:
+    paths:
+      - 'voice-command/**'
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Install dependencies
+        run: |
+          cd voice-command
+          npm install
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u klodinklod12 --password-stdin
+
+      - name: Build Docker image
+        run: |
+          cd voice-command
+          docker build -t klodinklod12/voice-command:latest .
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push klodinklod12/voice-command:latest
