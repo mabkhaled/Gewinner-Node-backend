@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'auth-service'
+    static_configs:
+      - targets: ['auth-service:3000']
+
+  - job_name: 'assistant-service'
+    static_configs:
+      - targets: ['assistant-service:3004']
+
+  - job_name: 'nodejs-chatbot-service'
+    static_configs:
+      - targets: ['nodejs-chatbot-service:3002']
+
+  - job_name: 'voice-command'
+    static_configs:
+      - targets: ['voice-command:3001']
+rule_files:
+  - "alert_rules.yml"

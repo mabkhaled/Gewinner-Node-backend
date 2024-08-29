@@ -1,56 +1,61 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const app = express();
-const port = 3000; // Make sure this port matches the one you're using
+const client = require('prom-client');
 
+const app = express();
+const port = 3000;
+
+// Create a Registry to register metrics
+const register = new client.Registry();
+
+// Define and register your metrics
+const loginAttemptsCounter = new client.Counter({
+    name: 'auth_service_login_attempts_total',
+    help: 'Total number of login attempts',
+});
+const successfulLoginsCounter = new client.Counter({
+    name: 'auth_service_successful_logins_total',
+    help: 'Total number of successful logins',
+});
+
+register.registerMetric(loginAttemptsCounter);
+register.registerMetric(successfulLoginsCounter);
+
+// Middleware setup
 app.use(cors());
 app.use(bodyParser.json());
 
-// Middleware to log incoming requests
-app.use((req, res, next) => {
-    console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);
-    console.log('Request Body:', req.body);
-    next();
+// Metrics endpoint (must be before any other routes)
+app.get('/metrics', async (req, res) => {
+    try {
+        res.set('Content-Type', register.contentType);
+        res.end(await register.metrics());
+    } catch (ex) {
+        console.error('Error generating metrics:', ex);
+        res.status(500).end();
+    }
 });
 
+// Login route
 app.post('/login', (req, res) => {
     const { email, wheelchairID } = req.body;
-    console.log('Login request received with:', req.body);
-    // Replace this with your actual login logic
+    loginAttemptsCounter.inc();  // Increment the login attempts counter
+
+    // Simple login logic for testing
     if (email === 'test@example.com' && wheelchairID === 'test123') {
+        successfulLoginsCounter.inc();  // Increment the successful logins counter
         res.status(200).json({ message: 'Login successful' });
     } else {
         res.status(401).json({ message: 'Invalid credentials' });
     }
 });
 
-app.post('/register', (req, res) => {
-    const { fullName, email, password, phoneNumber, wheelchairID } = req.body;
-    console.log('Register request received with:', req.body);
-    // Replace this with your actual registration logic
-    res.status(201).json({ message: 'User registered successfully' });
-});
-
-app.post('/reset-password', (req, res) => {
-    const { email, password } = req.body;
-    console.log('Reset password request received with:', req.body);
-    // Replace this with your actual password reset logic
-    res.status(200).json({ message: 'Password reset successful' });
-});
-
-app.put('/update-terms-assistant/:id', (req, res) => {
-    const { id } = req.params;
-    console.log('Update terms request received for ID:', id);
-    // Replace this with your actual update terms logic
-    res.status(200).json({ message: 'Terms updated successfully' });
-});
-
+// 404 Handler
 app.use((req, res) => {
-    console.log(`404 Error - ${req.method} ${req.url} - ${new Date().toISOString()}`);
     res.status(404).send('Not Found');
 });
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Auth service running at http://localhost:${port}`);
 });

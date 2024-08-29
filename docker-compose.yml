@@ -17,13 +17,20 @@ services:
   nodejs-chatbot-service:
     build: ./nodejs-chatbot-service
     ports:
-      - "3002:3002" # Corrected the port mapping from 3000 to 3002
+      - "3002:3002"
     environment:
       - NODE_ENV=production
 
   voice-command:
     build: ./voice-command
     ports:
-      - "3001:3001" # Corrected the port mapping from 3000 to 3001
+      - "3001:3001"
     environment:
       - NODE_ENV=production
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml

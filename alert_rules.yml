@@ -1,0 +1,44 @@
+groups:
+  - name: auth-service-alerts
+    rules:
+      - alert: HighErrorRate
+        expr: rate(http_requests_total{job="auth-service",status="500"}[5m]) > 0.05
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High error rate detected on Auth Service"
+          description: "The Auth Service has a high error rate of >5%."
+
+  - name: assistant-service-alerts
+    rules:
+      - alert: HighLatency
+        expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{job="assistant-service"}[5m])) > 0.5
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High latency detected on Assistant Service"
+          description: "The 95th percentile latency is greater than 0.5 seconds."
+
+  - name: nodejs-chatbot-service-alerts
+    rules:
+      - alert: ServiceDown
+        expr: up{job="nodejs-chatbot-service"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "NodeJS Chatbot Service is down"
+          description: "The NodeJS Chatbot Service has been down for more than 1 minute."
+
+  - name: voice-command-alerts
+    rules:
+      - alert: HighRequestRate
+        expr: rate(http_requests_total{job="voice-command"}[1m]) > 100
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High request rate on Voice Command Service"
+          description: "The Voice Command Service is receiving more than 100 requests per minute."
