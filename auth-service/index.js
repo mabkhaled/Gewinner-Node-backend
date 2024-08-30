@@ -1,61 +1,51 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const client = require('prom-client');
+require('dotenv').config();
+const { auth, requiresAuth } = require('express-openid-connect');
+const mongoose = require('mongoose');
+const authRoutes = require('./src/route/authRoutes');
 
 const app = express();
-const port = 3000;
 
-// Create a Registry to register metrics
-const register = new client.Registry();
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.error('MongoDB connection error:', err));
 
-// Define and register your metrics
-const loginAttemptsCounter = new client.Counter({
-    name: 'auth_service_login_attempts_total',
-    help: 'Total number of login attempts',
-});
-const successfulLoginsCounter = new client.Counter({
-    name: 'auth_service_successful_logins_total',
-    help: 'Total number of successful logins',
-});
+// Auth0 configuration
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: process.env.AUTH0_CLIENT_SECRET,
+    baseURL: process.env.AUTH0_BASE_URL,
+    clientID: process.env.AUTH0_CLIENT_ID,
+    issuerBaseURL: `https://${process.env.AUTH0_DOMAIN}`
+};
 
-register.registerMetric(loginAttemptsCounter);
-register.registerMetric(successfulLoginsCounter);
-
-// Middleware setup
+// Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(auth(config));
 
-// Metrics endpoint (must be before any other routes)
-app.get('/metrics', async (req, res) => {
-    try {
-        res.set('Content-Type', register.contentType);
-        res.end(await register.metrics());
-    } catch (ex) {
-        console.error('Error generating metrics:', ex);
-        res.status(500).end();
-    }
-});
+// Routes
+app.use('/auth', authRoutes);
 
-// Login route
-app.post('/login', (req, res) => {
-    const { email, wheelchairID } = req.body;
-    loginAttemptsCounter.inc();  // Increment the login attempts counter
-
-    // Simple login logic for testing
-    if (email === 'test@example.com' && wheelchairID === 'test123') {
-        successfulLoginsCounter.inc();  // Increment the successful logins counter
-        res.status(200).json({ message: 'Login successful' });
-    } else {
-        res.status(401).json({ message: 'Invalid credentials' });
-    }
+// Profile route - only accessible when authenticated
+app.get('/profile', requiresAuth(), (req, res) => {
+    res.status(200).json({
+        message: 'Login successful',
+        user: req.oidc.user
+    });
 });
 
 // 404 Handler
 app.use((req, res) => {
+    console.log('404 Not Found - URL:', req.originalUrl);
     res.status(404).send('Not Found');
 });
 
-app.listen(port, () => {
-    console.log(`Auth service running at http://localhost:${port}`);
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Auth service running at http://localhost:${PORT}`);
 });

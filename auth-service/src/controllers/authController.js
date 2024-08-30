@@ -30,17 +30,11 @@ const register = async (req, res) => {
             }
         };
 
-        jwt.sign(
-            payload,
-            process.env.JWT_SECRET,
-            { expiresIn: '1h' },
-            (err, token) => {
-                if (err) throw err;
-                res.json({ token });
-            }
-        );
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        res.status(201).json({ token });
     } catch (err) {
-        console.error(err.message);
+        console.error('Register Error:', err.message);
         res.status(500).send('Server error');
     }
 };
@@ -65,17 +59,11 @@ const login = async (req, res) => {
             }
         };
 
-        jwt.sign(
-            payload,
-            process.env.JWT_SECRET,
-            { expiresIn: '1h' },
-            (err, token) => {
-                if (err) throw err;
-                res.json({ token });
-            }
-        );
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        res.json({ token });
     } catch (err) {
-        console.error(err.message);
+        console.error('Login Error:', err.message);
         res.status(500).send('Server error');
     }
 };
@@ -96,7 +84,7 @@ const resetPassword = async (req, res) => {
 
         res.json({ msg: 'Password reset successful' });
     } catch (err) {
-        console.error(err.message);
+        console.error('Reset Password Error:', err.message);
         res.status(500).send('Server error');
     }
 };

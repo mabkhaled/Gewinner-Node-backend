@@ -9,6 +9,14 @@ groups:
         annotations:
           summary: "High error rate detected on Auth Service"
           description: "The Auth Service has a high error rate of >5%."
+      - alert: HighFailedLoginAttempts
+        expr: increase(http_requests_total{job="auth-service",status="400"}[15m]) > 6
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High number of failed login attempts on Auth Service"
+          description: "The Auth Service has more than 6 failed login attempts in the past 15 minutes."
 
   - name: assistant-service-alerts
     rules:
@@ -42,3 +50,14 @@ groups:
         annotations:
           summary: "High request rate on Voice Command Service"
           description: "The Voice Command Service is receiving more than 100 requests per minute."
+
+  - name: test-alerts
+    rules:
+      - alert: TestAlert
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Test Alert"
+          description: "This is a test alert to verify alerting functionality. It triggers when no targets are up."
