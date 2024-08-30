@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/" # Location of your package.json file
+    schedule:
+      interval: "daily" # Options: "daily", "weekly", "monthly"
+  - package-ecosystem: "pip"
+    directory: "/" # Location of your requirements.txt file
+    schedule:
+      interval: "daily" # Options: "daily", "weekly", "monthly"
