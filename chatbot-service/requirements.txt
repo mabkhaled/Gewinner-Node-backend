@@ -1,6 +1,6 @@
 rasa==3.6.2
 rasa-sdk==3.6.2
-pyyaml==5.4.1
+pyyaml==6.0.2
 websocket-client==1.6.3
 rsa==4.9
 requests==2.31.0
